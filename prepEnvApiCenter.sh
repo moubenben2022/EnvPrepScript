@@ -1,9 +1,11 @@
 #!/bin/bash
 # This file should be stored at /home/production/apicenter
 
-LOG_PATH="/home/ming/Desktop/work/logs"
-# Set the LOG_PATH variable to the desired directory path.
+LOG_DIR="/home/ming/Desktop/work/logs"
+LOG_FILE="$LOG_DIR/APICenter.log"
 
-mkdir -p $LOG_PATH
-# Use the mkdir command with the -p option to create the directory if it doesn't exist.
-# The -p option ensures that parent directories are created as needed.
+# Create the directory if it doesn't exist
+mkdir -p "$LOG_DIR"
+
+# Create an empty file or do nothing if it already exists
+touch "$LOG_FILE"
