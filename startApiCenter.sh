@@ -47,4 +47,4 @@ docker rm apicenter
 # docker run -v /path/on/host:/path/in/container image_name
 docker run --name apicenter -v "$LOG_PATH":"$LOG_PATH"  -p 12311:12311 -p 12312:12312 -d apicenter:latest
 
-docker image prune -
+docker image prune -af
