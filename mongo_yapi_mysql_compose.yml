@@ -5,7 +5,7 @@ services:
     image: mingming20200202/yapi_mongo
     container_name: yapi_mongo
     ports:
-      - "${YAPI_MONGO_OUT_PORT}:${YAPI_MONGO_IN_PORT}"
+      - "12308:27017"
     volumes:
       - /data/db:/data/db
     privileged: true
@@ -16,8 +16,8 @@ services:
     image: mingming20200202/yapi
     container_name: yapi
     ports:
-      - "${YAPI_IN_PORT1}:${YAPI_IN_PORT1}"
-      - "${YAPI_IN_PORT2}:${YAPI_IN_PORT2}"
+      - "12310:12310"
+      - "9090:9090"
     restart: always
     links:
       - yapi_mongo
@@ -27,5 +27,5 @@ services:
     image: mingming20200202/mysql_dev
     container_name: mysql_dev
     ports:
-      - "${MYSQL_OUT_PORT}:${MYSQL_IN_PORT}"
+      - "12306:3306"
     restart: always
