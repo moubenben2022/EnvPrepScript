@@ -49,7 +49,7 @@ fi
 
 # install pkgs
 sudo apt update
-sudo apt install -y maven
+sudo apt install -y maven tree
 mvn --version
 
 # Install Docker Compose
