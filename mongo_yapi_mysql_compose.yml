@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  yapi_mongo:
+    image: mingming20200202/yapi_mongo
+    container_name: yapi_mongo
+    ports:
+      - "${YAPI_MONGO_OUT_PORT}:${YAPI_MONGO_IN_PORT}"
+    volumes:
+      - /data/db:/data/db
+    privileged: true
+    restart: always
+    command: --auth
+
+  yapi:
+    image: mingming20200202/yapi
+    container_name: yapi
+    ports:
+      - "${YAPI_IN_PORT1}:${YAPI_IN_PORT1}"
+      - "${YAPI_IN_PORT2}:${YAPI_IN_PORT2}"
+    restart: always
+    links:
+      - yapi_mongo
+    command: bash -c "cd my-yapi/vendors && npm run install-server && cd .. && bash start.sh"
+
+  mysql_dev:
+    image: mingming20200202/mysql_dev
+    container_name: mysql_dev
+    ports:
+      - "${MYSQL_OUT_PORT}:${MYSQL_IN_PORT}"
+    restart: always
