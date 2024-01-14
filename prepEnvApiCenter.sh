@@ -60,5 +60,8 @@ sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-
 # Apply executable permissions
 sudo chmod +x /usr/local/bin/docker-compose
 
-gdown 'https://drive.google.com/uc?id=1LS8powVoH1ta5aBTK68PCVOYma3mfqTW' -O db.tar.gz
-tar zxvf db.tar.gz -C /db/data
+curl -O https://raw.githubusercontent.com/moubenben2022/EnvPrepScript/main/mongo.tar.gzaa
+curl -O https://raw.githubusercontent.com/moubenben2022/EnvPrepScript/main/mongo.tar.gzab
+
+ls mongo.tar.gz* | xargs -I {} cat {} | tar xzvf - -C /db/data
+
