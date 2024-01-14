@@ -49,8 +49,10 @@ fi
 
 # install pkgs
 sudo apt update
-sudo apt install -y maven tree
+sudo apt install -y maven tree python3-pip
 mvn --version
+
+pip install gdown
 
 # Install Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -58,4 +60,5 @@ sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-
 # Apply executable permissions
 sudo chmod +x /usr/local/bin/docker-compose
 
-
+gdown 'https://drive.google.com/uc?id=1LS8powVoH1ta5aBTK68PCVOYma3mfqTW' -O db.tar.gz
+tar zxvf db.tar.gz -C /db/data

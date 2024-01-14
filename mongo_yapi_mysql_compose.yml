@@ -21,7 +21,7 @@ services:
     restart: always
     links:
       - yapi_mongo
-    command: bash -c "cd my-yapi/vendors && npm run install-server && cd .. && rm -rf init.lock && bash start.sh"
+    command: bash -c "pm2 start my-yapi/vendors/server/app.js -n yapi -o log/yapy.log -e log/yapy.err"
     depends_on:
       - yapi_mongo
 
