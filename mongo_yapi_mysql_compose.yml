@@ -21,7 +21,7 @@ services:
     restart: always
     links:
       - yapi_mongo
-    command: pm2 start my-yapi/vendors/server/app.js -n yapi -o log/yapy.log -e log/yapy.err
+    command: bash -c "./wait-for-it.sh yapi_mongo:27017 -- pm2 start my-yapi/vendors/server/app.js -n yapi -o log/yapy.log -e log/yapy.err"
     depends_on:
       - yapi_mongo
 

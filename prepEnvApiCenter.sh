@@ -65,3 +65,5 @@ curl -O https://raw.githubusercontent.com/moubenben2022/EnvPrepScript/main/mongo
 
 ls mongo.tar.gz* | xargs -I {} cat {} | tar xzvf - -C /db/data
 
+curl -O https://raw.githubusercontent.com/moubenben2022/EnvPrepScript/main/mongo_yapi_mysql_compose.yml
+curl -O https://raw.githubusercontent.com/moubenben2022/EnvPrepScript/main/wait_for_it.sh
